@@ -500,7 +500,6 @@ h5 {
                  AOS.refresh();
              }
  
-             // Fungsi untuk menampilkan daftar Experience
              function showExperience() {
                  const aboutContent = document.getElementById('aboutContent');
                  aboutContent.innerHTML = `
@@ -517,7 +516,6 @@ h5 {
                  AOS.refresh();
              }
  
-             // Fungsi untuk menampilkan daftar Clients
              function showClients() {
                  const aboutContent = document.getElementById('aboutContent');
                  aboutContent.innerHTML = `
@@ -534,7 +532,6 @@ h5 {
                  AOS.refresh();
              }
  
-             // Fungsi untuk menampilkan daftar Awards
              function showAwards() {
                  const aboutContent = document.getElementById('aboutContent');
                  aboutContent.innerHTML = `
@@ -551,7 +548,6 @@ h5 {
                  AOS.refresh();
              }
  
-             // Fungsi pembantu untuk menghasilkan kartu project
              function generateProjectCards() {
                  const projects = [
                      {
@@ -572,7 +568,6 @@ h5 {
                          description: "Mobile-first task management application",
                          technologies: ["Vue.js", "Firebase"]
                      }
-                     // Add more projects as needed
                  ];
  
                  return projects.map(project => `
@@ -593,7 +588,6 @@ h5 {
              `).join('');
              }
  
-             // Fungsi pembantu untuk menghasilkan kartu experience
              function generateExperienceCards() {
                  const experiences = [
                      {
@@ -608,7 +602,6 @@ h5 {
                          period: "2019 - 2021",
                          description: "Developed responsive websites and web applications"
                      }
-                     // Add more experiences as needed
                  ];
  
                  return experiences.map(exp => `
@@ -623,7 +616,6 @@ h5 {
              `).join('');
              }
  
-             // Fungsi pembantu untuk menghasilkan kartu client
              function generateClientCards() {
                  const clients = [
                      {
@@ -638,7 +630,6 @@ h5 {
                          image: "img/zoro.jpg",
                          testimonial: "Delivered our app ahead of schedule with excellent quality"
                      }
-                     // Add more clients as needed
                  ];
  
                  return clients.map(client => `
@@ -655,7 +646,6 @@ h5 {
              `).join('');
              }
  
-             // Fungsi pembantu untuk menghasilkan kartu award
              function generateAwardCards() {
                  const awards = [
                      {
@@ -668,7 +658,6 @@ h5 {
                          organization: "Tech Summit 2022",
                          description: "Awarded for innovative use of emerging technologies"
                      }
-                     // Add more awards as needed
                  ];
  
                  return awards.map(award => `
@@ -685,7 +674,6 @@ h5 {
              `).join('');
              }
  
-             // Fungsi untuk mengembalikan konten awal
              function restoreInitialContent() {
                  const aboutContent = document.getElementById('aboutContent');
                  aboutContent.innerHTML = `
@@ -735,4 +723,3 @@ h5 {
  
  </html>
  
- <!-- Subscribe Tamzidan Madiyin di YouTube -->
