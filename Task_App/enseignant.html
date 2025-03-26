@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskUp - Enseignant</title>
+    <link rel="stylesheet" href="test.css" /> <!-- Assure-toi que ce fichier existe bien -->
+    <link rel="stylesheet" href="enseignant.css">
+  </head>
+<body>
+    <header>
+        <h1><span class="task">Task</span> <span class="up">Up</span></h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Espace Enseignant</h2>
+            <form id="enseignant-form" action="enseignant.php" method="POST">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required />
+
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom" required />
+
+                <label for="nomprojet">Nom du Projet:</label>
+                <input type="text" id="nomprojet" name="nomprojet" required />
+
+                <label for="descriptionp">Description du Projet:</label>
+                <textarea id="descriptionp" name="descriptionp" required></textarea>
+
+                <label for="filiere">Filière:</label>
+                <select name="filiere" id="filiere">
+                    <option value="" selected disabled>-- Sélectionnez une filière --</option>
+                    <optgroup label="Deust">
+                        <option value="deust_informatique">Informatique</option>
+                        <option value="deust_maths">Mathématiques</option>
+                        <option value="deust_physique">Physique</option>
+                    </optgroup>
+                    <optgroup label="LST">
+                        <option value="lst_informatique">Informatique</option>
+                        <option value="lst_reseaux">Réseaux & Télécoms</option>
+                        <option value="lst_electronique">Électronique</option>
+                    </optgroup>
+                    <optgroup label="Master">
+                        <option value="master_ia">Intelligence Artificielle</option>
+                        <option value="master_cybersecurite">Cybersécurité</option>
+                        <option value="master_bigdata">Big Data</option>
+                    </optgroup>
+                </select>
+
+                <button type="submit" name="addprojet">Créer Projet</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Task Up. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

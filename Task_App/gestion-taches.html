@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Up - Gestion des Tâches</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1><span class="task">Task</span> <span class="up">Up</span></h1>
+      <nav>
+        <ul>
+          <li><a href="bor.php">Accueil</a></li>
+          <li><a href="gestion-membres.html">Gestion des Membres</a></li>
+          <li><a href="gestion-taches.html">Gestion des Tâches</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="gestion-taches">
+        <h1>Gestion des Tâches</h1>
+
+        <!-- Formulaire pour ajouter une tâche -->
+        <form id="ajouter-tache-form">
+        
+
+          <label for="nom-membre"><strong> Nom du membre :</strong> </label>
+          <input type="text" id="nom-membre" name="nom-membre" required />
+
+          <label for="nom-tache"><strong> Nom de la tâche :</strong></label>
+          <input type="text" id="nom-tache" name="nom-tache" required />
+
+          <label for="description-tache"><strong> Description :</strong></label>
+          <input
+            type="text"
+            id="description-tache"
+            name="description-tache"
+            required
+          />
+
+          <label for="statut-tache"><strong> Statut :</strong></label>
+          <select id="statut-tache" name="statut-tache" required>
+            <option value="À faire">À faire</option>
+            <option value="En cours">En cours</option>
+            <option value="Terminé">Terminé</option>
+          </select>
+
+          <button type="submit">Ajouter</button>
+        </form>
+
+        <section>
+          <h3>Liste des Tâches</h3>
+          <table id="tableau-taches">
+            <thead>
+              <tr>
+                <th>Nom du membre</th>
+                <th>Nom de la tâche</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Les tâches seront ajoutées dynamiquement ici -->
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const formulaireAjouterTache =
+          document.getElementById("ajouter-tache-form");
+        const tableauTaches = document.querySelector("#tableau-taches tbody");
+
+        function ajouterTacheAuTableau(
+          id,
+          nomMembre,
+          nomTache,
+          descriptiont,
+          statut
+        ) {
+          const nouvelleLigne = document.createElement("tr");
+          nouvelleLigne.dataset.id = id;
+
+          nouvelleLigne.innerHTML = `
+                    <td>${nomMembre}</td>
+                    <td>${nomTache}</td>
+                    <td>${descriptiont}</td>
+                    <td>
+                        <select class="statut-tache">
+                            <option value="À faire" ${
+                              statut === "À faire" ? "selected" : ""
+                            }>À faire</option>
+                            <option value="En cours" ${
+                              statut === "En cours" ? "selected" : ""
+                            }>En cours</option>
+                            <option value="Terminé" ${
+                              statut === "Terminé" ? "selected" : ""
+                            }>Terminé</option>
+                        </select>
+                    </td>
+                    <td><button class="btn-supprimer">Supprimer</button></td>
+                `;
+
+          nouvelleLigne
+            .querySelector(".statut-tache")
+            .addEventListener("change", function () {
+              mettreAJourStatut(id, this.value);
+            });
+
+          nouvelleLigne
+            .querySelector(".btn-supprimer")
+            .addEventListener("click", function () {
+              if (confirm("Voulez-vous vraiment supprimer cette tâche ?")) {
+                supprimerTache(id, nouvelleLigne);
+              }
+            });
+
+          tableauTaches.appendChild(nouvelleLigne);
+        }
+
+        formulaireAjouterTache.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const nomMembre = document.getElementById("nom-membre").value.trim();
+          const nomTache = document.getElementById("nom-tache").value.trim();
+          const descriptiont = document
+            .getElementById("description-tache")
+            .value.trim();
+          const statut = document.getElementById("statut-tache").value;
+
+          if (!nomMembre || !nomTache || !descriptiont) {
+            alert("Veuillez remplir tous les champs !");
+            return;
+          }
+
+          fetch("gestion-taches.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({
+              "nom-membre": nomMembre,
+              "nom-tache": nomTache,
+              "description-tache": descriptiont,
+              "statut-tache": statut,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.status === "success") {
+                ajouterTacheAuTableau(
+                  data.id,
+                  nomMembre,
+                  nomTache,
+                  descriptiont,
+                  statut
+                );
+                formulaireAjouterTache.reset();
+              } else {
+                alert("Erreur : " + data.message);
+              }
+            })
+            .catch((error) => console.error("Erreur AJAX :", error));
+        });
+
+        function mettreAJourStatut(id, nouveauStatut) {
+          fetch("modifier-tache.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ id: id, statut: nouveauStatut }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              if (data.trim() !== "success") {
+                alert("Erreur de mise à jour : " + data);
+              }
+            })
+            .catch((error) => console.error("Erreur AJAX :", error));
+        }
+
+        function supprimerTache(id, ligneElement) {
+          fetch("supprimer-tache.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ id: id }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              if (data.trim() === "success") {
+                ligneElement.remove();
+              } else {
+                alert("Erreur de suppression : " + data);
+              }
+            })
+            .catch((error) => console.error("Erreur AJAX :", error));
+        }
+      });
+    </script>
+  </body>
+</html>

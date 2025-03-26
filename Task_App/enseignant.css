@@ -1,0 +1,113 @@
+/* Importation de la police */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style du body */
+body {
+  background-image: url("https://thumbs.dreamstime.com/z/groupe-de-personnes-le-concept-de-travail-d-%C3%A9quipe-de-r%C3%A9union-d-affaires-91098450.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Effet de flou sur l'arrière-plan */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Assombri l'image */
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+/* En-tête */
+header h1 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.task {
+    color: white;
+    font-weight: bold;
+}
+
+.up {
+    color: green;
+    font-weight: bold;
+}
+
+/* Conteneur du formulaire */
+.form-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+/* Titre du formulaire */
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Style des labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Style des inputs et du select */
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Style du bouton */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: green;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}

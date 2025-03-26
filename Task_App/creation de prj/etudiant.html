@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskUp - Étudiant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <span class="task">Task</span> <span class="up">Up</span>
+        </h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Espace Étudiant</h2>
+            <form id="etudiant-form" action="etudiant.php" method="POST">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+                
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom" required>
+                
+                <label for="code-apogee">Code Apogée:</label>
+                <input type="text" id="code-apogee" name="code-apogee" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit">Soumettre</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Task Up. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

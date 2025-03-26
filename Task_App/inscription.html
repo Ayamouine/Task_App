@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulaire d'Inscription</title>
+    <link rel="stylesheet" href="inscription.css" />
+  </head>
+  <body>
+    <form action="http://localhost/myphp/index.php" method="POST" class="form-container">
+      <h3>INSCRIPTION</h3>
+      <div class="form-group">
+        <input
+          type="text"
+          name="nom"
+          id="nom"
+          placeholder="Nom"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          name="prenom"
+          id="prenom"
+          placeholder="Prénom"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="tel"
+          name="num"
+          id="num"
+          placeholder="Numéro"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          name="pass"
+          id="pass"
+          placeholder="Entrez votre mot de passe"
+          onkeyup="checkPasswordStrength()"
+          required
+        />
+        <p id="password-message"></p>
+        
+
+      </div>
+      <div class="form-group">
+        <select name="profession" id="profession">
+            
+            <option   value="etudiant">Etudiant</option>
+            <option   value="admis">Admis</option>
+        </select>
+      </div>
+      <div>
+        <select name="filiere" id="filiere">
+          <option value="" selected disabled>-- Sélectionnez une filière --</option>
+          <optgroup label="Deust">
+              <option value="deust_informatique">Informatique</option>
+              <option value="deust_maths">Mathématiques</option>
+              <option value="deust_physique">Physique</option>
+          </optgroup>
+      
+          <optgroup label="LST">
+              <option value="lst_informatique">Informatique</option>
+              <option value="lst_reseaux">Réseaux & Télécoms</option>
+              <option value="lst_electronique">Électronique</option>
+          </optgroup>
+      
+          <optgroup label="Master">
+              <option value="master_ia">Intelligence Artificielle</option>
+              <option value="master_cybersecurite">Cybersécurité</option>
+              <option value="master_bigdata">Big Data</option>
+          </optgroup>
+      </select>
+      
+      </div>
+      <input type="submit" id="bt" name="inscription" value="S'inscrire" />
+    </form>
+    <script>
+     function checkPasswordStrength() {
+            let password = document.getElementById("pass").value;
+            let message = document.getElementById("password-message");
+            let strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (strongRegex.test(password)) {
+                message.innerText = "✅ Mot de passe fort !";
+                message.style.color = "green";
+            } else {
+                message.innerText = "⚠️ Mot de passe faible";
+                message.style.color = "red";
+            }
+        }
+      </script>
+      
+  </body>
+</html>

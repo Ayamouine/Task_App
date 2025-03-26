@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 100vh;           
+    background-image: url("photo.jpg");
+    background-size: cover;
+    width: 100vw;
+    background-repeat: no-repeat;
+    
+    margin:0;
+}
+
+/* Style du formulaire */
+.form-container {
+    width: 400px;
+    
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.183);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.form-container:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+h5 {
+    font-size: 14px;
+}
+input[type="password"], input[type="email"]{
+    width: 75%;
+    padding: 15px;  /* Espacement interne des champs */
+    margin-bottom: 30px;  /* Espace supplémentaire en haut */
+    border-radius: 10px;  /* Coins arrondis */
+    border: 1px solid #ccc;
+    font-size: 16px;  /* Taille du texte */
+    box-sizing: border-box; 
+}
+input[type="submit"] {
+    width: 20%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  
+    
+    
+}
+h3 {
+    font-size: 26px;  /* Plus grand pour l'inscription */
+    
+
+}
+input[type="submit"]:hover {
+    background-color: #17681b;
+   
+}
+h1{
+    position: absolute;
+    top: 10px; /* Ajuste la distance par rapport au haut */
+    left: 10px;
+    margin-left: 15px;
+    color: azure;
+    
+}

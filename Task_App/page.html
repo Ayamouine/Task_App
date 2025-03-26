@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1><i>TaskUp</i></h2>
+      
+    
+    <form action="index.php" method="POST" class="form-container">
+      <h3>Connexion</h3>
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Entrez votre email"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          name="pass"
+          id="pass"
+          placeholder="Entrez votre mot de passe"
+        />
+      </div>
+      
+      <input type="submit" id="bt" name="connexion" />
+      <h5>Vous n'avez pas de compte ? <a href="inscription.html">Inscrivez-vous ici</a></h5>
+    </form>
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", function(event) {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("pass").value;
+        
+        if (email === "" || password === "") {
+            alert("Veuillez remplir tous les champs !");
+            event.preventDefault(); // Bloquer si les champs sont vides
+        }
+    });
+});
+
+      </script>
+      
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+/* Style de base pour le body */
+body {
+    display: flex;
+    justify-content: center;  /* Centre horizontalement */
+    align-items: center;      /* Centre verticalement */
+    height: 100vh;            /* Prend toute la hauteur de l'écran */
+    background-image: url("photo.jpg"); /* Remplace par ton image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;  /* Évite les marges par défaut du body */
+}
+
+/* Style du formulaire */
+.form-container {
+    width: 400px;  /* Largeur plus grande pour l'inscription */
+    padding: 20px;  /* Espacement interne plus grand */
+     /* Fond avec plus de transparence */
+    color: white;
+    border-radius: 20px;
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);  /* Ombre plus nette */
+    text-align: center;
+}
+
+/* Effet au survol du formulaire */
+.form-container:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Style des champs de formulaire */
+.form-group {
+    margin-bottom: 10px; /* Espacement plus grand entre les champs */
+}
+
+/* Style des inputs */
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+    width: 75%;  /* Largeur maximale des champs */
+    padding: 15px;  /* Espacement interne des champs */
+    margin-top: 10px;  /* Espace supplémentaire en haut */
+    border-radius: 10px;  /* Coins arrondis */
+    border: 1px solid #ccc;
+    font-size: 16px;  /* Taille du texte */
+    box-sizing: border-box;  /* Inclut le padding dans la largeur totale */
+}
+
+/* Style du bouton de soumission */
+input[type="submit"] {
+    width: 20%;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+input[type="radio"]{
+    margin-bottom: 30px;
+
+}
+input[type="submit"]:hover {
+    background-color: #17681b;
+}
+
+h3 {
+    font-size: 26px;  /* Plus grand pour l'inscription */
+    margin-bottom: 30px;
+}
+
+#profession{
+    width: 50%;  /* Largeur maximale des champs */
+    padding: 5px;  /* Espacement interne des champs */
+    margin-top: 10px;  /* Espace supplémentaire en haut */
+    border-radius: 10px;  /* Coins arrondis */
+    border: 1px solid #ccc;
+    font-size: 16px;  /* Taille du texte */
+    box-sizing: border-box;
+}
+/* Liens */
+
