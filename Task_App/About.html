@@ -38,12 +38,9 @@
              height: 10vh;
              position: sticky;
              position: relative;
-             /* Ubah dari sticky ke relative */
              z-index: 1000;
-             /* Tambahkan z-index tinggi untuk nav */
          }
  
-         /* Container untuk konten navbar */
          .nav-container {
              width: 100%;
              height: 100%;
@@ -54,11 +51,7 @@
          .nav-container:hover {
             background-color: aliceblue;
          }
-         /* 
-           Logo styling
-           - Warna putih dengan ukuran 2rem
-           - Text shadow untuk efek glow pada span 
-         */
+
          .logo {
              color: rgb(0, 0, 0);
              font-size: 2rem;
@@ -82,10 +75,7 @@
              font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
          }
  
-         /* 
-           Navigation links container
-           - Flex layout untuk alignment horizontal
-         */
+
          .nav-container .links {
              display: flex;
          }
@@ -105,18 +95,11 @@
              border-bottom: 2px solid rgb(58, 211, 3);
          }
  
-         /* Styling untuk link aktif */
          .nav-container .links .active {
              color: rgb(58, 211, 3);
              border-bottom: 2px solid rgb(58, 211, 3);
          }
- 
-         /* 
-           Dropdown menu untuk mobile view
-           - Fixed positioning dengan transform untuk animasi
-           - Backdrop filter untuk efek blur
-         */
-      
+
          .dropdown .links a {
              display: flex;
              color: white;
@@ -131,7 +114,6 @@
              background-color: rgb(58, 211, 3);
          }
  
-         /* About Section Styles */
          .about-container {
              width: 100%;
              min-height: 90vh;
@@ -151,7 +133,6 @@
              border-radius: 20px;
              padding: 3rem;
              color: white;
-             /* box-shadow: 0 0 30px rgba(58, 211, 3, 0.3); */
          }
  
 
@@ -337,35 +318,29 @@
  
              .about-content {
                  width: 95%;
-                 /* Memperbesar width untuk layar kecil */
                  padding: 1.5rem;
              }
  
              .about-header h1 {
                  font-size: 1.8rem;
-                 /* Mengurangi ukuran judul */
              }
  
              .about-text h2 {
                  font-size: 1.4rem;
-                 /* Mengurangi ukuran sub-judul */
              }
  
              .about-text p {
                  font-size: 0.9rem;
-                 /* Mengurangi ukuran teks */
                  line-height: 1.4;
              }
  
              .about-image {
                  width: 100%;
                  max-height: 250px;
-                 /* Membatasi tinggi gambar */
              }
  
              .stats {
                  grid-template-columns: repeat(2, 1fr);
-                 /* Tetap 2 kolom tapi lebih kecil */
                  gap: 0.8rem;
              }
  
@@ -375,15 +350,12 @@
  
              .stat-item h3 {
                  font-size: 1.2rem;
-                 /* Mengurangi ukuran angka statistik */
              }
  
              .stat-item p {
                  font-size: 0.8rem;
-                 /* Mengurangi ukuran teks statistik */
              }
  
-             /* Menyesuaikan padding untuk link statistik */
              .stat-item a {
                  padding: 0.5rem;
                  display: block;
